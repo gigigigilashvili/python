@@ -1,0 +1,47 @@
+tuples
+
+coordinates = ((20,'hi'),(40,'like'),(60,'lock'),(80,'look'))
+def tuple(tuples):
+    num = list()
+    for i in range(len(tuples)):
+        if "l" in tuples[i][1]:
+            for j in range(0, len(tuples[i]), 2):
+                num.append(tuples[i][j])
+    maximum = max(num)
+    minimum = min(num)
+    i = 1
+                
+    while i <= minimum and i <= maximum:
+        if minimum % i == 0 and maximum % i == 0:
+            val = i
+        i = i + 1
+    return val
+
+print(tuple(coordinates))
+
+
+dicts damateba elementis
+
+dict = {5:{6:3}, 'hi':{18:12},'no':{100:"go"}, 50:{2:20}}
+def dicts(new_dict):
+    valueslist = list()
+    filteredlist = list()
+
+    for i in new_dict.values():
+        for j in i.values():
+            valueslist.append(j)
+    try:
+        maximum = max(valueslist)
+    except TypeError:
+        pass
+    for i in valueslist:
+        if type(i) == str:
+            continue
+        else:
+            filteredlist.append(i)
+    maximum = max(filteredlist)
+    new_item = {"max":maximum}
+
+    new_dict.update(new_item)
+    return new_dict
+print(dicts(dict))
